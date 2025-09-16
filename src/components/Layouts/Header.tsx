@@ -5,11 +5,21 @@ import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
 import { NavLinks } from "@/utils/constants/nav";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <>
-      <div className="border-b border-[#2A2A2A] bg-[#121212]/10 backdrop-blur-2xl">
+      <div
+        className={clsx(
+          "",
+          pathname === "/"
+            ? "border-b border-[#2A2A2A] bg-[#121212]/10 backdrop-blur-3xl fixed top-0 left-0 w-full"
+            : "bg-black"
+        )}
+      >
         <div className="h-[80px] flex items-center justify-between px-[18px] lg:px-0 container mx-auto ">
           <Image src="/logo.svg" alt="Logo" width={235} height={59} />
           <Image
