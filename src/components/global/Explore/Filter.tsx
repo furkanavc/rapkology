@@ -1,7 +1,10 @@
+import clsx from "clsx";
 import React from "react";
-
-const Filter = () => {
-  return <div>Filter</div>;
+interface FilterProps {
+  className?: string;
+}
+const Filter = ({ className }: FilterProps) => {
+  return <div className={clsx(className ?? "")}>Filter</div>;
 };
 
 export default Filter;
