@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-saira: var(--font-saira);
   --font-saira-condensed: var(--font-saira-condensed);
+  --font-helvetica: Helvetica, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
