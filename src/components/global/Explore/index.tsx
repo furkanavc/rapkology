@@ -1,14 +1,16 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Image from "next/image";
 import { Post } from "@/utils/types";
 import { usePosts } from "@/context/PostContext";
 import clsx from "clsx";
 import PostComponent from "./Post";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-
+import { useFilter } from "@/context/FilterContext";
+import Filter from "./Filter";
 const Explore = () => {
   const posts = usePosts();
+  const { selectedTags } = useFilter();
 
   const [isList, setIsList] = useState(true);
   const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
@@ -19,10 +21,23 @@ const Explore = () => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const filteredPosts = useMemo(() => {
+    return selectedTags.length > 0
+      ? posts.filter((post) =>
+          post.attributes.tags.some((tag) => selectedTags.includes(tag))
+        )
+      : posts;
+  }, [posts, selectedTags]);
+
   useEffect(() => {
-    const newPosts = posts.slice(0, page * postsPerPage);
+    setPage(1);
+    setVisiblePosts(filteredPosts.slice(0, postsPerPage));
+  }, [filteredPosts]);
+
+  useEffect(() => {
+    const newPosts = filteredPosts.slice(0, page * postsPerPage);
     setVisiblePosts(newPosts);
-  }, [page, posts]);
+  }, [page, filteredPosts]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +64,7 @@ const Explore = () => {
 
   return (
     <div
-      className=" flex flex-col w-full lg:w-3/4  items-center lg:items-start gap-10 px-4 md:px-0"
+      className=" flex flex-col w-full lg:w-3/4 gap-10 px-4 md:px-0"
       ref={containerRef}
     >
       <div className="flex w-full justify-between">
@@ -75,19 +90,19 @@ const Explore = () => {
           </button>
           <button
             onClick={() => setIsList(true)}
-            className="hover:opacity-80 p-1 cursor-pointer"
+            className="hover:opacity-80 p-1 cursor-pointer hidden lg:block"
           >
             <Image src="/icons/list.svg" width={23} height={19} alt="List" />
           </button>
           <button
             onClick={() => setIsList(false)}
-            className="hover:opacity-80 p-1 cursor-pointer"
+            className="hover:opacity-80 p-1 cursor-pointer hidden lg:block"
           >
             <Image src="/icons/grid.svg" width={23} height={19} alt="Grid" />
           </button>
         </div>
       </div>
-
+      <Filter className="block lg:hidden" />
       <div
         className={clsx(
           " grid w-full gap-10 py-10 px-4 md:px-0",
