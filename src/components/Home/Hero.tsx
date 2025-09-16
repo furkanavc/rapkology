@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { HomeHeroData } from "@/utils/constants/homeHero";
+import { HomeHeroData } from "@/utils/constants/sliderData";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
