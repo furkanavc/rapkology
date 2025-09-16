@@ -6,7 +6,7 @@ const BlogLayout = ({ children }: { children: React.ReactNode }) => {
     <main>
       <Header />
       {children}
-      <Footer className="flex-row w-full justify-between container mx-auto" />
+      <Footer className="flex-col lg:flex-row w-full justify-between container mx-auto" />
     </main>
   );
 };

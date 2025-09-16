@@ -13,7 +13,7 @@ const Footer = ({ className, textSize }: FooterProps) => {
   return (
     <div
       className={clsx(
-        "flex  items-center justify-center gap-10 py-10 px-5 lg:px-0",
+        "flex  items-center  gap-10 py-10 px-5 lg:px-0",
         className ?? "flex-col"
       )}
     >

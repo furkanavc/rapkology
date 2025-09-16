@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 import { Post } from "@/utils/types";
 
 interface MoreContentProps {
@@ -15,7 +15,11 @@ const MoreContent = ({ posts }: MoreContentProps) => {
         DAHA FAZLA İÇERİK
       </h1>
       {posts.map((item) => (
-        <div key={item._id} className="flex gap-2 items-center">
+        <Link
+          href={`/blog/${item.attributes.slug}`}
+          key={item._id}
+          className="flex gap-2 items-center"
+        >
           <Image
             src={item.attributes.img}
             alt={item.attributes.title}
@@ -26,7 +30,7 @@ const MoreContent = ({ posts }: MoreContentProps) => {
           <p className="text-[20px] lg:text-[25px] font-saira-condensed font-bold uppercase line-clamp-3">
             {item.attributes.desc}
           </p>
-        </div>
+        </Link>
       ))}
     </div>
   );

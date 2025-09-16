@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import clsx from "clsx";
 import { useState } from "react";
+import Link from "next/link";
 const Hero = () => {
   interface CustomPaginationProps {
     activeIndex: number;
@@ -104,7 +105,11 @@ const Hero = () => {
           <div className="flex flex-col gap-4 w-full lg:w-2/5">
             {slicedPosts.map((item) => {
               return (
-                <div key={item._id} className="flex gap-5 items-center">
+                <Link
+                  href={`/blog/${item.attributes.slug}`}
+                  key={item._id}
+                  className="flex gap-5 items-center"
+                >
                   <Image
                     src={item.attributes.img}
                     alt={item.attributes.title}
@@ -115,7 +120,7 @@ const Hero = () => {
                   <span className="line-clamp-3 font-bold  text-black w-full uppercase text-[20px]">
                     {item.attributes.desc}
                   </span>
-                </div>
+                </Link>
               );
             })}
           </div>
