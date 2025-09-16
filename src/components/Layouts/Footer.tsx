@@ -13,7 +13,7 @@ const Footer = ({ className, textSize }: FooterProps) => {
   return (
     <div
       className={clsx(
-        "flex items-center gap-10 py-10",
+        "flex  items-center justify-center gap-10 py-10 px-5 lg:px-0",
         className ?? "flex-col"
       )}
     >
@@ -38,7 +38,7 @@ const Footer = ({ className, textSize }: FooterProps) => {
           </button>
         </div>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col  gap-5">
         <div className="flex gap-2">
           {SocialData.map((item) => {
             return [
@@ -48,7 +48,7 @@ const Footer = ({ className, textSize }: FooterProps) => {
             ];
           })}
         </div>
-        <div className="flex flex-wrap gap-5">
+        <div className="flex flex-wrap  gap-5">
           {NavLinks.map((item) => {
             return (
               <Link
