@@ -11,7 +11,12 @@ interface FooterProps {
 const Footer = ({ className, textSize }: FooterProps) => {
   const year = new Date().getFullYear();
   return (
-    <div className={clsx("flex flex-col gap-10", className ?? "")}>
+    <div
+      className={clsx(
+        "flex items-center gap-10 py-10",
+        className ?? "flex-col"
+      )}
+    >
       <div className="flex flex-col gap-7">
         <h2
           className={clsx(
@@ -32,6 +37,8 @@ const Footer = ({ className, textSize }: FooterProps) => {
             <FaArrowRight />
           </button>
         </div>
+      </div>
+      <div className="flex flex-col gap-5">
         <div className="flex gap-2">
           {SocialData.map((item) => {
             return [
@@ -41,19 +48,19 @@ const Footer = ({ className, textSize }: FooterProps) => {
             ];
           })}
         </div>
-      </div>
-      <div className="flex flex-wrap gap-5">
-        {NavLinks.map((item) => {
-          return (
-            <Link
-              href={item.href}
-              key={item.name}
-              className="text-sm hover:opacity-70 duration-300"
-            >
-              {item.name}
-            </Link>
-          );
-        })}
+        <div className="flex flex-wrap gap-5">
+          {NavLinks.map((item) => {
+            return (
+              <Link
+                href={item.href}
+                key={item.name}
+                className="text-sm hover:opacity-70 duration-300"
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+        </div>
         <span className="text-[#5C5C5C]">
           © RAPKOLOGY All Rights Are Reserved {year}.
         </span>

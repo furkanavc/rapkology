@@ -21,7 +21,9 @@ const Header = () => {
         )}
       >
         <div className="h-[80px] flex items-center justify-between px-[18px] lg:px-0 container mx-auto ">
-          <Image src="/logo.svg" alt="Logo" width={235} height={59} />
+          <Link href="/">
+            <Image src="/logo.svg" alt="Logo" width={235} height={59} />
+          </Link>
           <Image
             src="/icons/hamburger-menu.svg"
             alt="Menu"

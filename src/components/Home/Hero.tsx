@@ -93,7 +93,6 @@ const Hero = () => {
         }}
         loop={true}
         onSlideChange={handleSlideChange}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         {HomeHeroData.map((item) => (
           <SwiperSlide

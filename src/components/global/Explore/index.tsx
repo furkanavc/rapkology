@@ -8,9 +8,11 @@ import PostComponent from "./Post";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useFilter } from "@/context/FilterContext";
 import Filter from "./Filter";
+import { usePathname } from "next/navigation";
 const Explore = () => {
   const posts = usePosts();
   const { selectedTags } = useFilter();
+  const pathname = usePathname();
 
   const [isList, setIsList] = useState(true);
   const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
@@ -40,6 +42,7 @@ const Explore = () => {
   }, [page, filteredPosts]);
 
   useEffect(() => {
+    if (pathname === "/blog") return;
     const handleScroll = () => {
       if (!containerRef.current) return;
       const { scrollTop, scrollHeight, clientHeight } =
@@ -62,9 +65,17 @@ const Explore = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loading, visiblePosts, posts]);
 
+  const handleLoadMore = () => {
+    if (visiblePosts.length < filteredPosts.length) {
+      setPage((prev) => prev + 1);
+    }
+  };
   return (
     <div
-      className=" flex flex-col w-full lg:w-3/4 gap-10 px-4 md:px-0"
+      className={clsx(
+        " flex flex-col  gap-10 px-4 md:px-0 py-10",
+        pathname === "/blog" ? "w-full" : "w-full lg:w-3/4"
+      )}
       ref={containerRef}
     >
       <div className="flex w-full justify-between">
@@ -102,11 +113,20 @@ const Explore = () => {
           </button>
         </div>
       </div>
-      <Filter className="block lg:hidden" />
+      <Filter
+        className={
+          (clsx("block lg:hidden"),
+          pathname === "/blog" ? "block" : "block lg:hidden")
+        }
+      />
       <div
         className={clsx(
           " grid w-full gap-10 py-10 px-4 md:px-0",
-          isList ? "grid-cols-1" : "grid-cols-2"
+          isList
+            ? "grid-cols-1"
+            : pathname === "/blog"
+            ? "grid-cols-4"
+            : "grid-cols-2"
         )}
       >
         {visiblePosts.map((item: Post) => (
@@ -120,7 +140,15 @@ const Explore = () => {
           />
         ))}
       </div>
-
+      {pathname === "/blog" && visiblePosts.length < filteredPosts.length && (
+        <button
+          onClick={handleLoadMore}
+          style={{ clipPath: "polygon(0 0, 100% 0, 93% 100%, 7% 93%)" }}
+          className="bg-white h-12 w-[186px] flex items-center self-center justify-center text-black text-sm font-bold hover:opacity-80 duration-300 z-10 cursor-pointer"
+        >
+          Daha Fazla Gör
+        </button>
+      )}
       {loading && (
         <div className="flex w-full justify-center py-5">
           <AiOutlineLoading3Quarters className="animate-spin text-3xl text-gray-700" />
