@@ -13,9 +13,9 @@ const Filter = ({ className }: FilterProps) => {
 
   return (
     <div className={clsx(className ?? "")}>
-      <h1 className="font-bold font-saira-condensed text-[30px] md:text-[40px]">
+      <h2 className="font-bold font-saira-condensed text-[30px] md:text-[40px]">
         NE GÖRMEK İSTERSİN?
-      </h1>
+      </h2>
       <div className="flex flex-wrap gap-3">
         {tags.map((tag) => {
           const isSelected = selectedTags.includes(tag);
