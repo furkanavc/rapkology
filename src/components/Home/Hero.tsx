@@ -10,9 +10,9 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { HomeHeroData } from "@/utils/constants/sliderData";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-
+import { useIsMobile } from "@/utils/hooks/useIsMobile";
 const CustomNavigation = () => {
   const swiper = useSwiper();
 
@@ -76,19 +76,8 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
 };
 const Hero = () => {
   const pathname = usePathname();
-  const [isMobile, setIsMobile] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
+  const isMobile = useIsMobile();
   const handleSlideChange = (swiper: SwiperType) => {
     setActiveSlide(swiper.realIndex);
   };
@@ -96,7 +85,6 @@ const Hero = () => {
     <div>
       <Swiper
         modules={[Pagination, Navigation]}
-        scrollbar={{ draggable: true }}
         spaceBetween={50}
         slidesPerView={1}
         navigation={{

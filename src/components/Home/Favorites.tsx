@@ -8,19 +8,9 @@ import { FavoritesData } from "@/utils/constants/sliderData";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useIsMobile } from "@/utils/hooks/useIsMobile";
 const Favorites = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <div className="relative flex flex-col lg:flex-row pt-24 lg:pt-0 gap-5 lg:gap-0 w-full items-center min-h-[447px] justify-between">
