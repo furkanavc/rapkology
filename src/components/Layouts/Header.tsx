@@ -14,9 +14,9 @@ const Header = () => {
     <>
       <div
         className={clsx(
-          "",
+          "z-50",
           pathname === "/"
-            ? "border-b border-[#2A2A2A] bg-[#121212]/10 backdrop-blur-3xl fixed top-0 left-0 w-full"
+            ? "border-b border-[#2A2A2A] bg-[#121212]/10 backdrop-blur-xs fixed top-0 left-0 w-full"
             : "bg-black"
         )}
       >
