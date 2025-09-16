@@ -113,7 +113,7 @@ const Hero = () => {
                     className="object-cover object-center w-full h-full -z-10 max-w-[180px]"
                   />
                   <span className="line-clamp-3 font-bold  text-black w-full uppercase text-[20px]">
-                    {item.attributes.content}
+                    {item.attributes.desc}
                   </span>
                 </div>
               );

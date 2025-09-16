@@ -132,7 +132,7 @@ const Explore = () => {
         {visiblePosts.map((item: Post) => (
           <PostComponent
             key={item._id}
-            description={item.attributes.content}
+            description={item.attributes.desc}
             authors={item.attributes.authors}
             image={item.attributes.img}
             slug={item.attributes.slug}

@@ -24,7 +24,7 @@ const MoreContent = ({ posts }: MoreContentProps) => {
             className="object-cover h-full w-full min-w-[170px] max-w-[170px]"
           />
           <p className="text-[20px] lg:text-[25px] font-saira-condensed font-bold uppercase line-clamp-3">
-            {item.attributes.content}
+            {item.attributes.desc}
           </p>
         </div>
       ))}

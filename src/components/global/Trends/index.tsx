@@ -40,7 +40,7 @@ const Trends = () => {
             <PostComponent
               key={item._id}
               index={index}
-              description={item.attributes.content}
+              description={item.attributes.desc}
               authors={item.attributes.authors}
               slug={item.attributes.slug}
             />

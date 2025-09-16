@@ -1,7 +1,7 @@
 export const NavLinks = [
   {
     name: "HABERLER",
-    href: "/",
+    href: "/blog",
   },
   {
     name: "ETKİNLİKLER",
