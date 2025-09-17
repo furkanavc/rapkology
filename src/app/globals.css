@@ -33,3 +33,12 @@ body {
   --swiper-scrollbar-bg-color: #F0E74D;
   --swiper-scrollbar-drag-bg-color: #2a2a2a;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}

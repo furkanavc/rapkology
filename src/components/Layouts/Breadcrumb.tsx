@@ -17,7 +17,7 @@ const Breadcrumb = ({ className }: BreadcrumbProps) => {
   return (
     <nav
       className={clsx(
-        "flex items-center text-sm text-black uppercase",
+        "flex items-center text-sm text-black uppercase overflow-y-scroll min-w-[320px] hide-scrollbar",
         className
       )}
     >
@@ -30,12 +30,14 @@ const Breadcrumb = ({ className }: BreadcrumbProps) => {
           .replace(/\b\w/g, (l) => l.toUpperCase());
 
         return (
-          <span key={path} className="flex items-center">
+          <span key={path} className="flex items-center ">
             <FaChevronRight className="mx-2" />
             {isLast ? (
-              <span className="font-semibold">{displayName}</span>
+              <span className="font-semibold whitespace-nowrap">
+                {displayName}
+              </span>
             ) : (
-              <Link href={path} className="hover:underline">
+              <Link href={path} className="hover:underline whitespace-nowrap">
                 {displayName}
               </Link>
             )}
