@@ -30,3 +30,5 @@ Projeyi bitirmek yaklaşık 15 saatimi aldı.
 Mobile menu için tasarım yoktu bu yüzden idare eder bişeyler koydum.
 
 Tasarımda blog ve blogun slugları vardı ama tasarımdaki navigasyonda blog sayfasına yönlediricek yer yoktu tasarımı bozmamak adına değişim yapmadım ama haberlere tıklayınca blog sayfasına gidilebilir.
+
+Pixel perfect yapmaya çalıştım boyutları figmadaki piksellerle aynıdır.
