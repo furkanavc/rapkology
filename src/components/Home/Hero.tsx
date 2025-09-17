@@ -20,7 +20,7 @@ const CustomNavigation = () => {
     <>
       <button
         onClick={() => swiper.slidePrev()}
-        className="absolute left-12 top-1/2 -translate-y-1/2 z-10 "
+        className="absolute left-12 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
       >
         <Image
           src="/icons/arrow.svg"
@@ -33,7 +33,7 @@ const CustomNavigation = () => {
 
       <button
         onClick={() => swiper.slideNext()}
-        className="absolute right-12 top-1/2 -translate-y-1/2 z-10 "
+        className="absolute right-12 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
       >
         <Image src="/icons/arrow.svg" alt="Next" width={24} height={24} />
       </button>
@@ -64,7 +64,7 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
             onSlideChange(index);
           }}
           className={clsx(
-            " rounded-full transition-all duration-300",
+            " rounded-full transition-all duration-300 cursor-pointer",
             activeIndex === index
               ? "bg-[#F0E74D] size-3"
               : "bg-[#1e1e1e] size-1.5 "

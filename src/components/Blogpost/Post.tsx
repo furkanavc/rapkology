@@ -15,7 +15,7 @@ const Post = ({ post }: PostProps) => {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(14);
   return (
-    <div className="flex flex-col gap-4 py-12">
+    <div className="flex flex-col gap-4 py-12 px-5 lg:px-0">
       <Breadcrumb className="mb-6 text-white" />
       <div className="flex items-center gap-2">
         <FiEye />
@@ -32,7 +32,7 @@ const Post = ({ post }: PostProps) => {
         alt={post.attributes.desc}
         width={740}
         height={320}
-        className="w-full h-full max-h-[320px] object-cover"
+        className="w-full h-full max-h-[700px] object-cover"
       />
       <p className="mt-4">{post.attributes.content}</p>
       <div className="flex items-center gap-2 flex-wrap">

@@ -27,6 +27,18 @@ const saira_condensed = Saira_Condensed({
 export const metadata: Metadata = {
   title: "Rapkology",
   description: "Rapkology - Your Ultimate Rap Music Companion",
+  icons: {
+    icon: [
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    title: "Rapkology",
+  },
 };
 
 export default async function RootLayout({

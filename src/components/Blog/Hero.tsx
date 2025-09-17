@@ -35,7 +35,7 @@ const Hero = () => {
               onSlideChange(index);
             }}
             className={clsx(
-              " rounded-full transition-all duration-300",
+              " rounded-full transition-all duration-300 cursor-pointer",
               activeIndex === index
                 ? "bg-black size-3"
                 : "bg-[#676103] size-1.5 "
