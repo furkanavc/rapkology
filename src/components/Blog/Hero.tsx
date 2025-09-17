@@ -85,13 +85,16 @@ const Hero = () => {
                   height={430}
                   className="object-cover object-center w-full h-full -z-10"
                 />
-                <h1 className="absolute bottom-42 left-5 line-clamp-1 lg:line-clamp-none lg:bottom-34 lg:left-10   font-saira-condensed font-bold lg:text-[40px] text-[25px] lg:max-w-lg">
+                <h1 className="absolute bottom-42 left-5 line-clamp-1 lg:line-clamp-none lg:bottom-34 lg:left-10  font-saira-condensed font-bold lg:text-[40px] text-[25px] lg:max-w-lg">
                   {item.attributes.title}
                 </h1>
                 <div className="flex w-full flex-col justify-center lg:flex-row lg:justify-between gap-10">
-                  <p className="font-saira-condensed text-[20px] lg:text-[25px] line-clamp-3 text-black font-bold">
-                    {item.attributes.content}
-                  </p>
+                  <Link
+                    href={`/blog/${item.attributes.slug}`}
+                    className="font-saira-condensed text-[20px] lg:text-[25px] line-clamp-3 text-black font-bold hover:underline cursor-pointer"
+                  >
+                    {item.attributes.desc}
+                  </Link>
 
                   <CustomPagination
                     activeIndex={activeSlide}
@@ -108,7 +111,7 @@ const Hero = () => {
                 <Link
                   href={`/blog/${item.attributes.slug}`}
                   key={item._id}
-                  className="flex gap-5 items-center"
+                  className="flex gap-5 items-center group "
                 >
                   <Image
                     src={item.attributes.img}
@@ -117,7 +120,7 @@ const Hero = () => {
                     height={105}
                     className="object-cover object-center w-full h-full -z-10 max-w-[180px]"
                   />
-                  <span className="line-clamp-3 font-bold  text-black w-full uppercase text-[20px]">
+                  <span className="line-clamp-3 font-bold  text-black w-full uppercase text-[20px] group-hover:underline">
                     {item.attributes.desc}
                   </span>
                 </Link>

@@ -74,7 +74,10 @@ const Post = ({ image, description, authors, slug, createdAt }: PostProps) => {
           {description}
         </p>
         <div className="border-b border-[#3B3B3B] my-5"></div>
-        <Link href={`/blog/${slug}`} className="text-sm md:text-base">
+        <Link
+          href={`/blog/${slug}`}
+          className="text-sm md:text-base hover:bg-white/10 max-w-fit p-2 duration-300"
+        >
           Daha Fazla Oku
         </Link>
       </div>
