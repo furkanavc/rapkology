@@ -26,3 +26,5 @@ Slug sayfasında ise SEO uyumluluğunu korumak için veriyi client tarafındaki 
 Artı olarak figmadan logoyu kesip favicon olarak ekledim.
 
 Projeyi bitirmek yaklaşık 15 saatimi aldı.
+
+Mobile menu için tasarım yoktu bu yüzden idare eder bişeyler koydum.
